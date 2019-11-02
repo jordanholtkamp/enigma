@@ -1,5 +1,6 @@
 require_relative './test_helper'
 require './lib/key'
+require 'mocha/minitest'
 
 class KeyTest < Minitest::Test
   def setup
@@ -16,20 +17,19 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_make_4_keys_that_are_two_nums_each
-    assert_equal 4, @key.four_keys_array.length
-    assert_equal 2, @key.four_keys_array[0].length
-    assert_instance_of String, @key.four_keys_array[0]
+    @key.stubs(:random_number_array).returns(["1", "2", "4", "1", "3"])
+    assert_equal ["12", "24", "41", "13"], @key.four_keys_array
+
   end
 
   def test_it_can_make_a_hash_of_keys
-    expected = {
+  @key.stubs(:random_number_array).returns(["1", "2", "4", "1", "3"])
+      expected = {
       a: 12,
-      b: 12,
-      c: 12,
-      d: 12
+      b: 24,
+      c: 41,
+      d: 13
       }
-    assert_equal expected.keys, @key.create_hash_of_keys.keys
-    assert_equal 4, expected.keys.length
-    assert_instance_of Integer, @key.create_hash_of_keys.values[0]
+      assert_equal expected, @key.create_hash_of_keys
   end
 end
