@@ -32,4 +32,15 @@ class OffsetTest < Minitest::Test
     @offset.stubs(:current_date).returns("021119")
     assert_equal [2,1,6,1], @offset.offset_array
   end
+
+  def test_it_can_get_hash_of_offsets
+    @offset.stubs(:current_date).returns("021119")
+    expected = {
+      a: 2,
+      b: 1,
+      c: 6,
+      d: 1
+    }
+    assert_equal expected, @offset.offset_hash
+  end
 end

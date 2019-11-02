@@ -26,4 +26,13 @@ class Offset
   def offset_array
     split_date_squared_to_array[5..9]
   end
+
+  def offset_hash
+    hash = {}
+      hash[:a] = offset_array[0].to_i
+      hash[:b] = offset_array[1].to_i
+      hash[:c] = offset_array[2].to_i
+      hash[:d] = offset_array[3].to_i
+    hash
+  end
 end
