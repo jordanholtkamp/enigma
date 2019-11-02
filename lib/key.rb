@@ -15,8 +15,17 @@ class Key
   end
 
   def create_hash_of_keys
-    require "pry"; binding.pry
     # four_keys_array.reduce({}) do |key_hash, key|
+    #   require "pry"; binding.pry
+    #     key_hash[four_keys_array.index(key)] = key.to_i
+    #     key_hash
     # end
+    hash = {}
+      hash[:a] = four_keys_array[0].to_i
+      hash[:b] = four_keys_array[1].to_i
+      hash[:c] = four_keys_array[2].to_i
+      hash[:d] = four_keys_array[3].to_i
+      
+    hash
   end
 end

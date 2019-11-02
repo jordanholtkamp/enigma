@@ -28,6 +28,8 @@ class KeyTest < Minitest::Test
       c: 12,
       d: 12
       }
-    assert_equal expected, @key.create_hash_of_keys
+    assert_equal expected.keys, @key.create_hash_of_keys.keys
+    assert_equal 4, expected.keys.length
+    assert_instance_of Integer, @key.create_hash_of_keys.values[0]
   end
 end
