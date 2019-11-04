@@ -12,12 +12,18 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_starts_with_an_empty_key_array
-  end 
+    assert_equal [], @key.key_array
+  end
 
   def test_it_can_generate_rand_5_digits
-    assert_instance_of Array, @key.random_number_array
-    assert_equal String, @key.random_number_array[0].class
-    assert_equal 5, @key.random_number_array.length
+    assert_instance_of String, @key.random_number_string
+    assert_equal 5, @key.random_number_string.length
+  end
+
+  def test_it_can_split_the_string_into_five_elements_of_an_array
+    assert_instance_of Array, @key.array_of_five_digits
+    assert_equal 5, @key.array_of_five_digits.length
+    assert_instance_of String, @key.array_of_five_digits[0]
   end
 
   def test_key_array_has_4_ints
