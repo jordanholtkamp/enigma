@@ -1,31 +1,23 @@
 class Key
 
-
+  attr_reader :key_array
+  def initialize
+    @a_key = ""
+    @b_key = ""
+    @c_key = ""
+    @d_key = ""
+    @key_array = []
+  end
 
   def random_number_array
     5.times.map { rand(9) }.join.split("")
   end
 
-  def four_keys_array
-    keys_as_strings = []
+  def four_keys
+    # keys_as_strings = []
     random_number_array.each_cons(2) do |a,b|
-      keys_as_strings << a + b
+      @key_array << (a + b).to_i
     end
-    keys_as_strings
-  end
-
-  def create_hash_of_keys
-    # four_keys_array.reduce({}) do |key_hash, key|
-    #   require "pry"; binding.pry
-    #     key_hash[four_keys_array.index(key)] = key.to_i
-    #     key_hash
-    # end
-    hash = {}
-      hash[:a] = four_keys_array[0].to_i
-      hash[:b] = four_keys_array[1].to_i
-      hash[:c] = four_keys_array[2].to_i
-      hash[:d] = four_keys_array[3].to_i
-      
-    hash
+    @key_array
   end
 end

@@ -22,25 +22,21 @@ class OffsetTest < Minitest::Test
     assert_equal 446012161, @offset.square_date
   end
 
-  def test_it_can_take_last_4_of_date_squared_as_array
+  def test_it_can_make_array_from_squared_value
     @offset.stubs(:current_date).returns("021119")
     expected = [4,4,6,0,1,2,1,6,1]
     assert_equal expected, @offset.split_date_squared_to_array
   end
 
-  def test_it_can_get_four_offsets
+  def test_it_create_4_offsets
     @offset.stubs(:current_date).returns("021119")
-    assert_equal [2,1,6,1], @offset.offset_array
+    @offset.create_offsets
+    assert_equal 2, @offset.a_offset
   end
 
-  def test_it_can_get_hash_of_offsets
+  def test_it_can_get_four_offsets
     @offset.stubs(:current_date).returns("021119")
-    expected = {
-      a: 2,
-      b: 1,
-      c: 6,
-      d: 1
-    }
-    assert_equal expected, @offset.offset_hash
+    @offset.create_offsets
+    assert_equal [2,1,6,1], @offset.offset_array
   end
 end

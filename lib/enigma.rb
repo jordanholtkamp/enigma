@@ -1,21 +1,20 @@
+require_relative './date'
+require_relative './key'
+
 class Enigma
   def initialize
+    @offset = Offset.new
+    @key = Key.new
   end
 
   def encrypt(message, key, date)
 
   end
 
-  # def square_date(date)
-  #   (date.to_i)**2
-  # end
-  #
-  # def split_date_squared_to_array(date)
-  #   string_array = square_date(date).to_s.split("")
-  #   string_array.map { |string| string.to_i }
-  # end
-  #
-  # def offset(date)
-  #   split_date_squared_to_array(date)[6..9]
-  # end
+  def shift_total(key, date)
+    
+    # offset.offset_hash.merge(key.create_hash_of_keys) do |key, offset_values, key_values|
+    #   offset_values + key_values
+    # end
+  end
 end
