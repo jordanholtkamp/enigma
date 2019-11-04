@@ -2,13 +2,9 @@ require 'Date'
 
 class Offset
 
-  attr_reader :offset_array, :a_offset # this is just to test it is making the offsets properly
+  attr_reader :offset_array
   def initialize
     @date = Time.now
-    @a_offset = ""
-    @b_offset = ""
-    @c_offset = ""
-    @d_offset = ""
     @offset_array = []
   end
 
@@ -29,19 +25,10 @@ class Offset
   end
 
   def create_offsets
-    @a_offset = split_date_squared_to_array[5]
-    @b_offset = split_date_squared_to_array[6]
-    @c_offset = split_date_squared_to_array[7]
-    @d_offset = split_date_squared_to_array[8]
-    @offset_array = [@a_offset, @b_offset, @c_offset, @d_offset]
+    a_offset = split_date_squared_to_array[5]
+    b_offset = split_date_squared_to_array[6]
+    c_offset = split_date_squared_to_array[7]
+    d_offset = split_date_squared_to_array[8]
+    @offset_array = [a_offset, b_offset, c_offset, d_offset]
   end
-
-  # def offset_hash
-  #   require "pry"; binding.pry
-  #     offset_key_pairs[:a] = offset_array[0].to_i
-  #     offset_key_pairs[:b] = offset_array[1].to_i
-  #     offset_key_pairs[:c] = offset_array[2].to_i
-  #     offset_key_pairs[:d] = offset_array[3].to_i
-  #   offset_key_pairs
-  # end
 end

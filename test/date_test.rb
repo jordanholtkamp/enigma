@@ -28,12 +28,6 @@ class OffsetTest < Minitest::Test
     assert_equal expected, @offset.split_date_squared_to_array
   end
 
-  def test_it_create_4_offsets
-    @offset.stubs(:current_date).returns("021119")
-    @offset.create_offsets
-    assert_equal 2, @offset.a_offset
-  end
-
   def test_it_can_get_four_offsets
     @offset.stubs(:current_date).returns("021119")
     @offset.create_offsets
