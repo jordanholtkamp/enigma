@@ -5,8 +5,12 @@ class Key
     @key_array = []
   end
 
-  def random_number_array
-    5.times.map { rand(9) }.join.split("")
+  def random_number_string
+    5.times.map { rand(9) }.join
+  end
+
+  def array_of_five_digits
+    random_number_string.split("")
   end
 
   def make_four_keys

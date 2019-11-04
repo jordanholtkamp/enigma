@@ -5,22 +5,21 @@ require 'mocha/minitest'
 class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
-    @key = Key.new
-    @offset = Offset.new
+    # @key = Key.new
+    # @offset = Offset.new
   end
 
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_can_create_a_total_shift_hash
-    expected = {
-      a: 14,
-      b: 25,
-      c: 47,
-      d: 14
-    }
-    assert_equal expected, @enigma.shift_total("12413", "021119")
+  def test_it_can_get_default_current_date
+    assert_equal "041119", @enigma.offset.current_date
+  end
+
+  def test_it_can_get_random_key
+    assert_instance_of String, @enigma.key.random_number_string
+    assert_equal 5, @enigma.key.random_number_string.length
   end
 
   def test_it_can_encrypt
