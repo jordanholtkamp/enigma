@@ -22,6 +22,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_make_total_shift
-    assert_equal [14,24,40,46], Shift.make_total_shift("12345", "041119")
+    assert_equal 14, Shift.a_shift("12345", "041119")
+    assert_equal 40, Shift.c_shift("12345", "041119")
   end
 end
