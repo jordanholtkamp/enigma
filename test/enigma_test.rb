@@ -12,7 +12,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_get_default_current_date
-    assert_equal "041119", @enigma.offset
+    assert_equal "051119", @enigma.offset
   end
 
   def test_it_can_get_random_key
@@ -25,8 +25,8 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.alphabet
   end
 
-  def test_it_can_encrypt
-    assert_equal "keder ohulw", @enigma.encrypt("hello world", "02715", "040895")
+  def test_it_can_encrypt_message
+    assert_equal "keder ohulw", @enigma.test_it_can_encrypt_message("hello world", "02715", "040895")
   end
 
   # def test_it_can_make_a_shift
