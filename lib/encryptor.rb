@@ -1,2 +1,5 @@
 class Encryptor
-end 
+
+  def initialize(message, key, date)
+  end
+end
