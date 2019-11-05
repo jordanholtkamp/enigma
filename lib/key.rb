@@ -1,7 +1,8 @@
 class Key
 
-  attr_reader :key_array
-  def initialize
+  attr_reader :key_array, :key
+  def initialize(given_key = random_number_string)
+    @key = given_key
     @key_array = []
   end
 
@@ -10,11 +11,11 @@ class Key
   end
 
   def array_of_five_digits
-    random_number_string.split("")
+    key.split("")
   end
 
   def make_four_keys
-    random_number_array.each_cons(2) do |a,b|
+    array_of_five_digits.each_cons(2) do |a,b|
       @key_array << (a + b).to_i
     end
   end
