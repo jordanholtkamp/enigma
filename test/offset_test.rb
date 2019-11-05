@@ -1,5 +1,5 @@
 require_relative './test_helper'
-require './lib/date'
+require './lib/offset'
 require 'mocha/minitest'
 require 'Date'
 
