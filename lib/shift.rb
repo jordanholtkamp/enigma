@@ -21,20 +21,4 @@ class Shift
     make_four_keys_array(key)[2] + make_four_offsets(offset)[2],
     make_four_keys_array(key)[3] + make_four_offsets(offset)[3]]
   end
-  #
-  # def self.a_shift(key, date)
-  #   make_four_keys_array(key)[0] + make_four_offsets(date)[0]
-  # end
-  #
-  # def self.b_shift(key, date)
-  #   make_four_keys_array(key)[1] + make_four_offsets(date)[1]
-  # end
-  #
-  # def self.c_shift(key, date)
-  #   make_four_keys_array(key)[2] + make_four_offsets(date)[2]
-  # end
-  #
-  # def self.d_shift(key, date)
-  #   make_four_keys_array(key)[3] + make_four_offsets(date)[3]
-  # end
 end
