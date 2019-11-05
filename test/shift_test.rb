@@ -13,26 +13,15 @@ class ShiftTest < Minitest::Test
     assert_instance_of Shift, @shift
   end
 
-  def test_it_starts_with_an_empty_shift_array
-    assert_equal [], @shift.shift_array
+  def test_it_can_make_keys
+    assert_equal [12,23,34,45], Shift.make_four_keys_array("12345")
   end
 
-  def test_it_can_retrieve_key_and_date_arrays
-    @shift.key.stubs(:random_number_array).returns(["1", "2", "4", "1", "3"])
-    @shift.offset.stubs(:current_date).returns("021119")
-
-    @shift.offset.create_offsets
-    @shift.key.make_four_keys
-
-    assert_equal [12,24,41,13], @shift.key.key_array
-    assert_equal [2,1,6,1], @shift.offset.offset_array
+  def test_make_four_offsets
+    assert_equal [2,1,6,1], Shift.make_four_offsets("041119")
   end
 
-  def test_it_can_add_into_one_shift_array
-    @shift.key.stubs(:random_number_array).returns(["1", "2", "4", "1", "3"])
-    @shift.offset.stubs(:current_date).returns("021119")
-
-    @shift.add_key_and_offset
-    assert_equal [14,25,47,14], @shift.shift_array
+  def test_it_can_make_total_shift
+    assert_equal [14,24,40,46], Shift.make_total_shift("12345", "041119")
   end
 end
