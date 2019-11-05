@@ -1,7 +1,7 @@
 require_relative './test_helper'
 require './lib/shift'
 require './lib/key'
-require './lib/date'
+require './lib/offset'
 require 'mocha/minitest'
 
 class ShiftTest < Minitest::Test
@@ -22,7 +22,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_make_total_shift
-    assert_equal 14, Shift.a_shift("12345", "041119")
-    assert_equal 40, Shift.c_shift("12345", "041119")
+    assert_equal 14, Shift.total_shift("12345", "041119")[0]
+    assert_equal 40, Shift.total_shift("12345", "041119")[2]
   end
 end
