@@ -1,10 +1,6 @@
 require_relative './enigma'
 
-def initialize
-  @enigma = Enigma.new
-  @key = Key.random_number_string
-  @offset = Offset.current_date
-end
+@enigma = Enigma.new
 
 handle = File.open(ARGV[0], "r")
 
@@ -12,13 +8,14 @@ message = handle.read
 
 handle.close
 
-puts message
+# puts message
 
-encrypt = @enigma.encrypt(message, key, offset)
+encrypt = @enigma.encrypt(message.strip)
 
 writer = File.open(ARGV[1], "w")
 
-writer.write(encrypt)
+writer.write(encrypt[:encryption])
 
 writer.close
 
+puts "Created #{ARGV[1]} with key #{encrypt[:key]} and date #{encrypt[:date]}"
