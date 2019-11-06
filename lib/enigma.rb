@@ -11,7 +11,6 @@ class Enigma
     @key = Key.random_number_string
   end
 
-
   def message_encrypt(message, key = @key, offset = @offset)
     message.chars.map.with_index do |char, index|
       if !@alphabet.include?(char)
