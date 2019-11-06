@@ -12,6 +12,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_get_default_current_date
+    @enigma.stubs(:offset).returns("051119")
     assert_equal "051119", @enigma.offset
   end
 
